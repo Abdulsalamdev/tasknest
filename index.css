@@ -1,0 +1,103 @@
+* {
+  margin: 0;          
+  padding: 0;         
+  box-sizing: border-box;  
+}
+
+/* Light Mode Variables */
+:root {
+  /* Page / Container */
+  --bg-page: #f5f5f5;
+  --bg-container: #ffffff;
+  --text-default: #333333;
+  --shadow-container: rgba(0, 0, 0, 0.1);
+
+  /* Add Task Input & Button */
+  --input-border: #4CAF50;
+  --input-bg: #ffffff;
+  --input-text: #121212;
+  --add-btn-bg: #4CAF50;
+  --add-btn-text: #ffffff;
+  --add-btn-hover-opacity: 0.85;
+
+  /* Delete Task Button */
+  --delete-btn-bg: #f44336;
+  --delete-btn-text: #ffffff;
+  --delete-btn-hover-bg: #f0f0f0;
+  --delete-btn-hover-text: #f44336;
+
+  /* Mark Complete */
+  --task-completed-text: #999999;
+  --task-active-text: #333333;
+
+  /* Edit Task */
+  --edit-input-bg: #ffffff;
+  --edit-input-text: #333333;
+  --edit-input-border: #4CAF50;
+
+  /* Filter Tasks */
+  --filter-btn-active-bg: #4CAF50;
+  --filter-btn-active-text: #ffffff;
+  --filter-btn-inactive-bg: #e0e0e0;
+  --filter-btn-inactive-text: #333333;
+
+  /* Task Counter */
+  --task-counter-text: #333333;
+
+  /* Accent / UX / Transitions */
+  --accent-color: #FF9800;
+  --transition-time: 0.3s;
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+  /* Page / Container */
+  --bg-page: #121212;
+  --bg-container: #1e1e1e;
+  --text-default: #e0e0e0;
+  --shadow-container: rgba(0, 0, 0, 0.6);
+
+  /* Add Task Input & Button */
+  --input-border: #81C784;
+  --input-bg: #1e1e1e;
+  --input-text: #ffffff;
+  --add-btn-bg: #81C784;
+  --add-btn-text: #121212;
+  --add-btn-hover-opacity: 0.85;
+
+  /* Delete Task Button */
+  --delete-btn-bg: #e57373;
+  --delete-btn-text: #ffffff;
+  --delete-btn-hover-bg: #2c2c2c;
+  --delete-btn-hover-text: #f44336;
+
+  /* Mark Complete */
+  --task-completed-text: #aaaaaa;
+  --task-active-text: #ffffff;
+
+  /* Edit Task */
+  --edit-input-bg: #1e1e1e;
+  --edit-input-text: #ffffff;
+  --edit-input-border: #81C784;
+
+  /* Filter Tasks */
+  --filter-btn-active-bg: #81C784;
+  --filter-btn-active-text: #121212;
+  --filter-btn-inactive-bg: #333333;
+  --filter-btn-inactive-text: #e0e0e0;
+
+  /* Task Counter */
+  --task-counter-text: #e0e0e0;
+
+  /* Accent / UX / Transitions */
+  --accent-color: #FFB74D;
+  --transition-time: 0.3s;
+}
+
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--bg-page);
+  color: var(--text-default);
+}
+
