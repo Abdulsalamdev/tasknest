@@ -1,103 +1,252 @@
+/* General Reset */
 * {
-  margin: 0;          
-  padding: 0;         
-  box-sizing: border-box;  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
-/* Light Mode Variables */
-:root {
-  /* Page / Container */
-  --bg-page: #f5f5f5;
-  --bg-container: #ffffff;
-  --text-default: #333333;
-  --shadow-container: rgba(0, 0, 0, 0.1);
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  background: var(--bg-page);
+  color: var(--text-default);
+  min-height: 100vh;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
 
-  /* Add Task Input & Button */
-  --input-border: #4CAF50;
+.container {
+  background: var(--bg-container);
+  padding: 30px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px var(--shadow-container);
+  width: 95%;
+  max-width: 400px;
+  text-align: center;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header h3 span {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.toggle-mode {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.toggle-mode:hover {
+  transform: rotate(20deg);
+}
+
+.add-task {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.add-task input {
+  flex: 1 1 200px;
+  padding: 12px 14px;
+  border: 2px solid var(--input-border);
+  border-radius: 12px;
+  background: var(--input-bg);
+  color: var(--input-text);
+  font-size: 1rem;
+  outline: none;
+}
+
+.add-task input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.add-task .add-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--add-btn-bg);
+  color: var(--add-btn-text);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.add-task .add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.task-list {
+  list-style: none;
+  text-align: left;
+  margin: 20px 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: var(--bg-container);
+  box-shadow: 0 4px 12px var(--shadow-container);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.task:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.task.completed .task-text {
+  text-decoration: line-through;
+  color: var(--task-completed-text);
+}
+
+.task-text {
+  color: var(--task-active-text);
+  transition: color 0.3s;
+}
+
+.delete-btn {
+  background: var(--delete-btn-bg);
+  color: var(--delete-btn-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: var(--delete-btn-hover-bg);
+  color: var(--delete-btn-hover-text);
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.filter-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: var(--filter-btn-inactive-bg);
+  color: var(--filter-btn-inactive-text);
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+  background: var(--filter-btn-active-bg);
+  color: var(--filter-btn-active-text);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.filter-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.task-counter {
+  text-align: right;
+  color: var(--task-counter-text);
+  font-size: 14px;
+  margin-top: 10px;
+  transition: color 0.3s;
+}
+
+:root {
+  --bg-page: #f0f4f8;
+  --bg-container: #ffffff;
+  --text-default: #2c2c2c;
+  --shadow-container: rgba(0,0,0,0.08);
+
+  --input-border: #5DADE2;
   --input-bg: #ffffff;
-  --input-text: #121212;
-  --add-btn-bg: #4CAF50;
+  --input-text: #2c2c2c;
+  --add-btn-bg: #5DADE2;
   --add-btn-text: #ffffff;
   --add-btn-hover-opacity: 0.85;
 
-  /* Delete Task Button */
-  --delete-btn-bg: #f44336;
+  --delete-btn-bg: #E74C3C;
   --delete-btn-text: #ffffff;
   --delete-btn-hover-bg: #f0f0f0;
-  --delete-btn-hover-text: #f44336;
+  --delete-btn-hover-text: #E74C3C;
 
-  /* Mark Complete */
-  --task-completed-text: #999999;
-  --task-active-text: #333333;
+  --task-completed-text: #95A5A6;
+  --task-active-text: #2c2c2c;
 
-  /* Edit Task */
-  --edit-input-bg: #ffffff;
-  --edit-input-text: #333333;
-  --edit-input-border: #4CAF50;
-
-  /* Filter Tasks */
-  --filter-btn-active-bg: #4CAF50;
+  --filter-btn-active-bg: #5DADE2;
   --filter-btn-active-text: #ffffff;
-  --filter-btn-inactive-bg: #e0e0e0;
-  --filter-btn-inactive-text: #333333;
+  --filter-btn-inactive-bg: #ecf0f1;
+  --filter-btn-inactive-text: #2c2c2c;
 
-  /* Task Counter */
-  --task-counter-text: #333333;
-
-  /* Accent / UX / Transitions */
-  --accent-color: #FF9800;
+  --accent-color: #F39C12;
   --transition-time: 0.3s;
 }
 
-/* Dark Mode Variables */
 .dark-mode {
-  /* Page / Container */
   --bg-page: #121212;
-  --bg-container: #1e1e1e;
+  --bg-container: #1f1f1f;
   --text-default: #e0e0e0;
-  --shadow-container: rgba(0, 0, 0, 0.6);
+  --shadow-container: rgba(0,0,0,0.6);
 
-  /* Add Task Input & Button */
-  --input-border: #81C784;
-  --input-bg: #1e1e1e;
-  --input-text: #ffffff;
-  --add-btn-bg: #81C784;
+  --input-border: #3498DB;
+  --input-bg: #1f1f1f;
+  --input-text: #e0e0e0;
+  --add-btn-bg: #3498DB;
   --add-btn-text: #121212;
   --add-btn-hover-opacity: 0.85;
 
-  /* Delete Task Button */
-  --delete-btn-bg: #e57373;
+  --delete-btn-bg: #E57373;
   --delete-btn-text: #ffffff;
   --delete-btn-hover-bg: #2c2c2c;
-  --delete-btn-hover-text: #f44336;
+  --delete-btn-hover-text: #E74C3C;
 
-  /* Mark Complete */
   --task-completed-text: #aaaaaa;
   --task-active-text: #ffffff;
 
-  /* Edit Task */
-  --edit-input-bg: #1e1e1e;
-  --edit-input-text: #ffffff;
-  --edit-input-border: #81C784;
-
-  /* Filter Tasks */
-  --filter-btn-active-bg: #81C784;
+  --filter-btn-active-bg: #3498DB;
   --filter-btn-active-text: #121212;
   --filter-btn-inactive-bg: #333333;
   --filter-btn-inactive-text: #e0e0e0;
 
-  /* Task Counter */
-  --task-counter-text: #e0e0e0;
-
-  /* Accent / UX / Transitions */
-  --accent-color: #FFB74D;
-  --transition-time: 0.3s;
+  --accent-color: #F5B041;
 }
 
-
-body {
-  font-family: "Roboto", sans-serif;
-  background: var(--bg-page);
-  color: var(--text-default);
+@media (max-width: 350px) {
+  .add-task input, .add-task .add-btn {
+    width: 100%;
+  }
+  .filters button {
+    flex: 1 1 45%;
+    margin-bottom: 8px;
+  }
 }
-
