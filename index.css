@@ -182,6 +182,18 @@ body {
   transition: color 0.3s;
 }
 
+.task.dragging {
+  opacity: 0.5;
+  transform: scale(1.05);
+}
+
+.task.drag-over {
+  background: rgba(93, 173, 226, 0.15);
+  border: 2px dashed var(--accent-color);
+  transition: all 0.25s ease;
+}
+
+
 :root {
   --bg-page: #f0f4f8;
   --bg-container: #ffffff;
