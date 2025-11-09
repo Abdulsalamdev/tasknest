@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="index.css">
   <title>TaskNest</title>
 </head>
@@ -24,18 +21,7 @@
       <button class="add-btn">Add</button>
     </div>
 
-    <ul class="task-list">
-      <li class="task">
-        <input type="checkbox" />
-        <span class="task-text">Sample Task 1</span>
-        <button class="delete-btn">X</button>
-      </li>
-      <li class="task completed">
-        <input type="checkbox" checked />
-        <span class="task-text">Completed Task</span>
-        <button class="delete-btn">X</button>
-      </li>
-    </ul>
+    <ul class="task-list"></ul>
 
     <div class="filters">
       <button class="filter-btn active">All</button>
@@ -43,16 +29,9 @@
       <button class="filter-btn">Completed</button>
     </div>
 
-    <p class="task-counter">2 tasks left</p>
+    <p class="task-counter">0 tasks left</p>
   </div>
 
-  <script>
-    const toggleBtn = document.querySelector(".toggle-mode");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-    });
-  </script>
   <script src="script.js"></script>
 </body>
 </html>
